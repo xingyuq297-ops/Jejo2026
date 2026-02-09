@@ -8,124 +8,136 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap');
-        body { background-color: #f9f8f4; font-family: 'Noto Sans TC', sans-serif; color: #333; scroll-behavior: smooth; }
+        body { background-color: #fdfcf8; font-family: 'Noto Sans TC', sans-serif; color: #334155; }
         .serif { font-family: 'Noto Serif TC', serif; }
-        .timeline-line { position: absolute; left: 24px; top: 0; bottom: 0; width: 1px; background-color: #e5e7eb; }
-        .card { background: white; border-radius: 8px; border: 1px solid #f1f1f1; }
-        .tag { font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: bold; text-transform: uppercase; }
-        .tag-food { color: #d97706; background: #fffbeb; border: 1px solid #fef3c7; }
-        .tag-spot { color: #059669; background: #ecfdf5; border: 1px solid #d1fae5; }
-        .tag-stay { color: #2563eb; background: #eff6ff; border: 1px solid #dbeafe; }
-        .nav-active { border-bottom: 2px solid #333; font-weight: bold; }
+        .jeju-orange { color: #f97316; }
+        .bg-jeju-orange { background-color: #f97316; }
+        
+        /* Tab 切換邏輯 */
+        .page { display: none; }
+        .page.active { display: block; animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* 導航列樣式 */
+        .nav-btn.active { color: #f97316; border-bottom: 3px solid #f97316; }
+        .nav-btn.active .date-circle { background-color: #f97316; color: white; }
+
+        /* 時間軸線 */
+        .timeline-line { position: absolute; left: 31px; top: 0; bottom: 0; width: 2px; background: #f1f5f9; }
+        .timeline-dot { position: absolute; left: 26px; width: 12px; height: 12px; background: white; border: 3px solid #f97316; border-radius: 50%; z-index: 10; }
+        
+        /* 模仿 Threads 質感卡片 */
+        .card-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.02); }
     </style>
 </head>
-<body class="pb-24">
+<body class="pb-32">
 
-    <header class="p-8 text-center bg-white">
-        <p class="text-[10px] tracking-[0.4em] text-gray-400 mb-2 uppercase">Family Trip</p>
-        <h1 class="serif text-2xl font-bold tracking-tight text-slate-800">錢往濟州島 <span class="font-light text-slate-300 text-lg ml-1">2026</span></h1>
-        <div class="h-px w-8 bg-slate-200 mx-auto mt-4"></div>
+    <header class="p-10 text-center">
+        <p class="text-[10px] tracking-[0.5em] text-gray-400 mb-2 uppercase font-bold">CNY Family Trip</p>
+        <h1 class="serif text-3xl font-black text-slate-800">錢往濟州島 <span class="jeju-orange">🍊</span></h1>
     </header>
 
-    <nav class="sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b flex justify-around py-3 px-2">
-        <a href="#day1" class="text-center px-2"><p class="text-[8px] text-gray-400 uppercase">Mon</p><p class="serif font-bold text-lg">16</p></a>
-        <a href="#day2" class="text-center px-2"><p class="text-[8px] text-gray-400 uppercase">Tue</p><p class="serif font-bold text-lg">17</p></a>
-        <a href="#day3" class="text-center px-2"><p class="text-[8px] text-gray-400 uppercase">Wed</p><p class="serif font-bold text-lg">18</p></a>
-        <a href="#day4" class="text-center px-2"><p class="text-[8px] text-gray-400 uppercase">Thu</p><p class="serif font-bold text-lg">19</p></a>
-        <a href="#day5" class="text-center px-2"><p class="text-[8px] text-gray-400 uppercase text-blue-500 font-bold">Fri</p><p class="serif font-bold text-lg">20</p></a>
+    <nav class="sticky top-0 bg-white/80 backdrop-blur-xl z-50 border-b border-gray-100 flex justify-between px-6 py-4">
+        <button onclick="showPage('day1')" id="btn-day1" class="nav-btn active flex flex-col items-center gap-1 transition-all">
+            <span class="text-[10px] font-bold text-gray-400 uppercase">D1</span>
+            <span class="date-circle w-8 h-8 flex items-center justify-center rounded-full serif font-bold">16</span>
+        </button>
+        <button onclick="showPage('day2')" id="btn-day2" class="nav-btn flex flex-col items-center gap-1 transition-all text-gray-300">
+            <span class="text-[10px] font-bold uppercase">D2</span>
+            <span class="date-circle w-8 h-8 flex items-center justify-center rounded-full serif font-bold">17</span>
+        </button>
+        <button onclick="showPage('btn-day3')" id="btn-day3" class="nav-btn flex flex-col items-center gap-1 transition-all text-gray-300">
+            <span class="text-[10px] font-bold uppercase">D3</span>
+            <span class="date-circle w-8 h-8 flex items-center justify-center rounded-full serif font-bold">18</span>
+        </button>
+        <button onclick="showPage('day4')" id="btn-day4" class="nav-btn flex flex-col items-center gap-1 transition-all text-gray-300">
+            <span class="text-[10px] font-bold uppercase">D4</span>
+            <span class="date-circle w-8 h-8 flex items-center justify-center rounded-full serif font-bold">19</span>
+        </button>
+        <button onclick="showPage('day5')" id="btn-day5" class="nav-btn flex flex-col items-center gap-1 transition-all text-gray-300">
+            <span class="text-[10px] font-bold uppercase">D5</span>
+            <span class="date-circle w-8 h-8 flex items-center justify-center rounded-full serif font-bold">20</span>
+        </button>
     </nav>
 
-    <main class="p-6 relative">
+    <main class="max-w-md mx-auto p-6 relative">
         <div class="timeline-line"></div>
 
-        <section id="day1" class="mb-12">
-            <h2 class="serif text-xl font-bold mb-6 pl-10 flex items-center gap-2">Day 1 <span class="text-sm font-normal text-gray-400">西北部平整</span></h2>
-            
-            <div class="relative pl-12 mb-8">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-blue-400 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2"><span class="serif font-bold text-lg">07:30</span><span class="tag tag-stay">Transport</span></div>
-                <div class="card p-4">
-                    <p class="font-bold text-sm">樂天租車 (Lotte Rent)</p>
-                    <p class="text-xs text-gray-500 mt-1">抵達後搭乘接駁車取車。</p>
-                </div>
-            </div>
-
-            <div class="relative pl-12 mb-8">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-orange-400 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2"><span class="serif font-bold text-lg">09:30</span><span class="tag tag-food">Cafe</span></div>
-                <div class="card p-4 border-l-4 border-orange-200">
-                    <p class="font-bold text-sm">Siso Kaymak (시소카이막)</p>
-                    <p class="text-xs text-gray-500 mt-1">必吃土耳其奶油蜂蜜早餐。</p>
-                    <a href="https://naver.me/xsYv0q8u" class="text-[10px] text-blue-500 bg-blue-50 px-2 py-1 rounded mt-2 inline-block italic">Naver Map 導航</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="day2" class="mb-12">
-            <h2 class="serif text-xl font-bold mb-6 pl-10 flex items-center gap-2">Day 2 <span class="text-sm font-normal text-gray-400">西部慢活</span></h2>
-            <div class="relative pl-12 mb-8">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-green-400 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2"><span class="serif font-bold text-lg">11:00</span><span class="tag tag-spot">Spot</span></div>
-                <div class="card p-4">
-                    <p class="font-bold text-sm">山茶花之丘 (Camellia Hill)</p>
-                    <p class="text-xs text-gray-500 mt-1 italic">「冬季限定紅色山茶花」</p>
-                </div>
-            </div>
-            <div class="relative pl-12 mb-8">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-orange-400 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2"><span class="serif font-bold text-lg">13:30</span><span class="tag tag-food">Lunch</span></div>
-                <div class="card p-4">
-                    <p class="font-bold text-sm text-orange-800 italic font-black">Noraba 海鮮拉麵 (노라바)</p>
-                    <p class="text-xs text-gray-500 mt-1">邊看海邊吃濟州豪華海鮮麵。</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="day4" class="mb-12">
-            <h2 class="serif text-xl font-bold mb-6 pl-10 flex items-center gap-2">Day 4 <span class="text-sm font-normal text-gray-400">牛島冒險</span></h2>
-            <div class="relative pl-12 mb-8">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-black ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2"><span class="serif font-bold text-lg">全天</span><span class="tag tag-spot">Udo Island</span></div>
-                <div class="card p-4 bg-orange-50/20">
-                    <p class="font-bold text-sm mb-3 underline decoration-orange-300">必吃清單</p>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center">
-                            <p class="text-xs">On Off 黑豬肉炸豬排</p>
-                            <a href="https://naver.me/FOv7Z4K1" class="text-[9px] text-blue-500">Map</a>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <p class="text-xs">Udo Sand 花生三明治</p>
-                            <a href="https://naver.me/I5cM7R1x" class="text-[9px] text-blue-500">Map</a>
-                        </div>
+        <div id="day1" class="page active">
+            <div class="space-y-12">
+                
+                <div class="relative pl-16">
+                    <div class="timeline-dot top-1"></div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="serif font-black text-xl">07:30</span>
+                        <span class="bg-blue-50 text-blue-500 text-[10px] px-2 py-0.5 rounded font-bold">TRANSPORT</span>
+                    </div>
+                    <div class="card p-5 bg-white rounded-2xl card-shadow">
+                        <p class="font-bold text-slate-800 text-lg mb-1">樂天租車取車</p>
+                        <p class="text-xs text-slate-400 mb-4 font-light">Lotte Rent-a-Car</p>
+                        <p class="text-sm text-slate-500 leading-relaxed mb-4">領完行李後前往接駁區。我們這次租的是家庭型車款，預約編號已存在手機截圖中。</p>
+                        <a href="https://naver.me/5LQ4Tpck" class="flex items-center gap-2 text-[11px] font-bold jeju-orange">
+                            <i class="fa-solid fa-location-arrow"></i> Naver Map 導航
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="day5" class="mb-12">
-            <h2 class="serif text-xl font-bold mb-6 pl-10 flex items-center gap-2">Day 5 <span class="text-sm font-normal text-gray-400">東部饗宴</span></h2>
-            <div class="relative pl-12 mb-8">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-orange-600 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2"><span class="serif font-bold text-lg">09:00</span><span class="tag tag-food">Must go</span></div>
-                <div class="card p-4 border-2 border-slate-800 shadow-sm">
-                    <p class="font-bold text-sm">London Bagel Museum (런던베이글)</p>
-                    <p class="text-xs text-red-500 mt-1">※ 提早排隊/CatchTable 預約</p>
-                    <a href="https://naver.me/G87O6S6W" class="text-[10px] text-blue-500 mt-2 block italic underline">點我導航</a>
+                <div class="relative pl-16">
+                    <div class="timeline-dot top-1"></div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="serif font-black text-xl">09:30</span>
+                        <span class="bg-orange-50 text-orange-500 text-[10px] px-2 py-0.5 rounded font-bold">CAFE</span>
+                    </div>
+                    <div class="card p-5 bg-white rounded-2xl card-shadow">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=800" class="w-full h-40 object-cover rounded-xl mb-4">
+                        <p class="font-bold text-slate-800 text-lg mb-1">Siso Kaymak</p>
+                        <p class="text-[11px] text-gray-400 mb-3 italic">시소카이막</p>
+                        <div class="bg-orange-50 p-3 rounded-lg border border-orange-100 mb-4">
+                            <p class="text-xs text-orange-700 font-bold"><i class="fa-solid fa-star"></i> 必點推薦</p>
+                            <p class="text-[11px] text-orange-600 mt-1">土耳其奶油蜂蜜 + 剛烤好的熱麵包。</p>
+                        </div>
+                        <a href="https://naver.me/xsYv0q8u" class="flex items-center gap-2 text-[11px] font-bold jeju-orange">
+                            <i class="fa-solid fa-location-arrow"></i> 開啟地圖導航
+                        </a>
+                    </div>
                 </div>
+
             </div>
-        </section>
+        </div>
+
+        <div id="day2" class="page text-center py-20 italic text-gray-400">Day 2 載入中...</div>
+        <div id="day3" class="page text-center py-20 italic text-gray-400">Day 3 載入中...</div>
+        <div id="day4" class="page text-center py-20 italic text-gray-400">Day 4 載入中...</div>
+        <div id="day5" class="page text-center py-20 italic text-gray-400">Day 5 載入中...</div>
 
     </main>
 
-    <footer class="fixed bottom-6 inset-x-6 flex justify-between items-center bg-black/95 text-white rounded-2xl px-6 py-4 shadow-2xl">
-        <div class="flex flex-col">
-            <span class="text-[9px] text-gray-500 uppercase tracking-widest">Total Budget</span>
-            <span class="serif text-lg font-bold tracking-tight">NT$ 50,000 <span class="text-[9px] font-normal text-gray-500">/ 4 ppl</span></span>
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-11/12 max-w-sm bg-slate-900/90 backdrop-blur text-white p-4 rounded-3xl flex justify-between items-center shadow-2xl z-[100]">
+        <div>
+            <p class="text-[9px] text-gray-400 uppercase tracking-widest">Est. Budget</p>
+            <p class="serif font-bold">NT$ 12,500 <span class="text-xs font-normal opacity-50">/ person</span></p>
         </div>
-        <a href="https://naver.me/5LQ4Tpck" class="bg-white text-black px-5 py-2 rounded-lg text-xs font-black uppercase tracking-tighter">
-            Naver List
+        <a href="https://naver.me/5LQ4Tpck" class="bg-jeju-orange px-5 py-2 rounded-full text-xs font-black shadow-lg">
+            全清單
         </a>
-    </footer>
+    </div>
 
+    <script>
+        function showPage(dayId) {
+            // 切換分頁顯示
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(dayId).classList.add('active');
+
+            // 切換導航按鈕樣式
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-gray-300');
+            });
+            document.getElementById('btn-' + dayId).classList.add('active');
+            document.getElementById('btn-' + dayId).classList.remove('text-gray-300');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
