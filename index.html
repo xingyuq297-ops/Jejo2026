@@ -3,155 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>濟州冬日 2026</title>
+    <title>濟州 2026 | 行程清單</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap');
-        
-        body { 
-            background-color: #f9f8f4; /* 模仿截圖的米色底 */
-            font-family: 'Noto Sans TC', sans-serif;
-            color: #333;
-        }
+        body { background-color: #f9f8f4; font-family: 'Noto Sans TC', sans-serif; color: #333; scroll-behavior: smooth; }
         .serif { font-family: 'Noto Serif TC', serif; }
-        
-        /* 模仿截圖的時間軸線 */
-        .timeline-line {
-            position: absolute;
-            left: 24px;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background-color: #e5e7eb;
-        }
-
-        .nav-active {
-            border-bottom: 2px solid #333;
-            font-weight: bold;
-        }
-
-        .card {
-            background: white;
-            border-radius: 8px;
-            transition: transform 0.2s;
-        }
-        
-        /* 標籤樣式 */
-        .tag-food { color: #d97706; background: #fffbeb; border: 1px solid #fef3c7; padding: 2px 6px; border-radius: 4px; font-size: 10px; }
-        .tag-transport { color: #4b5563; background: #f3f4f6; border: 1px solid #e5e7eb; padding: 2px 6px; border-radius: 4px; font-size: 10px; }
-        .tag-stay { color: #2563eb; background: #eff6ff; border: 1px solid #dbeafe; padding: 2px 6px; border-radius: 4px; font-size: 10px; }
+        .timeline-line { position: absolute; left: 24px; top: 0; bottom: 0; width: 1px; background-color: #e5e7eb; }
+        .card { background: white; border-radius: 12px; border: 1px solid #f1f1f1; }
+        .tag { font-size: 9px; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+        .tag-food { color: #d97706; background: #fffbeb; border: 1px solid #fef3c7; }
+        .tag-spot { color: #059669; background: #ecfdf5; border: 1px solid #d1fae5; }
+        .tag-stay { color: #2563eb; background: #eff6ff; border: 1px solid #dbeafe; }
+        .nav-sticky { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-24">
 
-    <nav class="sticky top-0 bg-white/90 backdrop-blur-md z-50 border-b">
-        <div class="p-4 text-center">
-            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-400">Family Trip</p>
-            <h1 class="serif text-xl font-bold mt-1">濟州旅行 <span class="text-gray-300 font-light text-sm ml-1">2026</span></h1>
-        </div>
-        <div class="flex justify-around text-center pb-2 px-2 overflow-x-auto no-scrollbar">
-            <a href="#day1" class="px-3 pb-1">
-                <p class="text-[8px] text-gray-400 uppercase">Mon</p>
-                <p class="text-lg serif">16</p>
-            </a>
-            <a href="#day2" class="px-3 pb-1">
-                <p class="text-[8px] text-gray-400 uppercase">Tue</p>
-                <p class="text-lg serif text-gray-300">17</p>
-            </a>
-            <a href="#day3" class="px-3 pb-1">
-                <p class="text-[8px] text-gray-400 uppercase text-blue-500 font-bold underline underline-offset-4">Wed</p>
-                <p class="text-lg serif">18</p>
-            </a>
-            <a href="#day4" class="px-3 pb-1 text-gray-300">
-                <p class="text-[8px]">Thu</p><p class="text-lg serif">19</p>
-            </a>
-            <a href="#day5" class="px-3 pb-1 text-gray-300">
-                <p class="text-[8px]">Fri</p><p class="text-lg serif">20</p>
-            </a>
-        </div>
+    <header class="p-8 text-center bg-white">
+        <p class="text-[10px] tracking-[0.4em] text-gray-400 mb-2 uppercase">Jeju Island 2026</p>
+        <h1 class="serif text-2xl font-bold">濟州冬日·家族之旅</h1>
+        <div class="h-px w-12 bg-black mx-auto mt-4"></div>
+    </header>
+
+    <nav class="nav-sticky border-b flex justify-around py-3 px-2 overflow-x-auto no-scrollbar shadow-sm">
+        <a href="#day1" class="text-center px-2"><p class="text-[8px] text-gray-400">02.16</p><p class="serif font-bold">D1</p></a>
+        <a href="#day2" class="text-center px-2"><p class="text-[8px] text-gray-400">02.17</p><p class="serif font-bold">D2</p></a>
+        <a href="#day3" class="text-center px-2"><p class="text-[8px] text-gray-400">02.18</p><p class="serif font-bold text-blue-600">D3</p></a>
+        <a href="#day4" class="text-center px-2"><p class="text-[8px] text-gray-400">02.19</p><p class="serif font-bold">D4</p></a>
+        <a href="#day5" class="text-center px-2"><p class="text-[8px] text-gray-400">02.20</p><p class="serif font-bold">D5</p></a>
     </nav>
 
     <main class="p-6 relative">
         <div class="timeline-line"></div>
 
-        <section id="day1" class="space-y-12">
+        <section id="day1" class="mb-12">
+            <h2 class="serif text-xl font-bold mb-6 pl-10">02.16 Monday</h2>
             
-            <div class="relative pl-12">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-gray-300 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2">
-                    <span class="serif text-lg font-bold">06:05</span>
-                    <span class="text-xs text-gray-400">班機抵達 (LJ764)</span>
-                </div>
-                <div class="card p-4 border border-gray-100">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fa-solid fa-plane text-gray-400 text-sm"></i>
-                        <span class="tag-transport">FLIGHT</span>
-                    </div>
-                    <p class="text-sm text-gray-600 leading-relaxed">抵達濟州機場，領取行李並準備入境。</p>
+            <div class="relative pl-12 mb-8">
+                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-blue-500 ring-4 ring-[#f9f8f4]"></div>
+                <div class="flex items-baseline gap-2 mb-2"><span class="serif font-bold">07:30</span><span class="tag tag-stay">RENT</span></div>
+                <div class="card p-4">
+                    <p class="font-bold text-sm">樂天租車 (Lotte Rent-a-Car)</p>
+                    <p class="text-xs text-gray-400 mt-1">搭乘接駁車前往取車點</p>
                 </div>
             </div>
 
-            <div class="relative pl-12">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-gray-300 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2">
-                    <span class="serif text-lg font-bold">07:30</span>
-                    <span class="serif text-lg font-bold">取車 (Lotte Rent)</span>
-                </div>
-                <div class="card p-4 border border-gray-100">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fa-solid fa-car text-gray-400 text-sm"></i>
-                        <span class="tag-transport">TRANSPORT</span>
-                    </div>
-                    <p class="text-sm text-gray-500">【接駁位置】領完行李後，前往 Rental Car 接駁區。已預約：<span class="text-red-400 border border-red-200 px-1 rounded text-[10px]">預約濟</span></p>
-                </div>
-            </div>
-
-            <div class="relative pl-12">
+            <div class="relative pl-12 mb-8">
                 <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-orange-400 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2">
-                    <span class="serif text-lg font-bold">09:00</span>
-                    <span class="serif text-lg font-bold">早餐：Siso Kaymak</span>
-                </div>
-                <div class="card p-4 border border-gray-100">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fa-solid fa-utensils text-orange-400 text-sm"></i>
-                        <span class="tag-food">FOOD</span>
-                    </div>
-                    <p class="text-sm text-gray-600 mb-3">土耳其奶油蜂蜜，濟州島超人氣視覺系早餐。</p>
-                    <a href="https://naver.me/xsYv0q8u" class="text-[10px] text-blue-500 bg-blue-50 px-2 py-1 rounded inline-flex items-center gap-1">
-                        <i class="fa-solid fa-location-dot"></i> Naver Map 導航
-                    </a>
+                <div class="flex items-baseline gap-2 mb-2"><span class="serif font-bold">09:30</span><span class="tag tag-food">CAFE</span></div>
+                <div class="card p-4 border-l-4 border-orange-200">
+                    <p class="font-bold text-sm">Siso Kaymak (시소카이막)</p>
+                    <p class="text-xs text-gray-500 mt-1 leading-relaxed">【必吃】土耳其奶油蜂蜜，搭配現烤麵包。建議一開門就去。</p>
+                    <a href="https://naver.me/xsYv0q8u" class="text-[10px] text-blue-500 mt-2 inline-block"><i class="fa-solid fa-map"></i> 開啟 Naver Map</a>
                 </div>
             </div>
-
-             <div class="relative pl-12">
-                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-blue-400 ring-4 ring-[#f9f8f4]"></div>
-                <div class="flex items-baseline gap-4 mb-2">
-                    <span class="serif text-lg font-bold">入住</span>
-                    <span class="serif text-lg font-bold">布朗小屋 (Brown Cabin)</span>
-                </div>
-                <div class="card p-4 border border-blue-50 bg-blue-50/20">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fa-solid fa-house-chimney text-blue-400 text-sm"></i>
-                        <span class="tag-stay">STAY</span>
-                    </div>
-                    <p class="text-sm text-gray-600">靠近涯月海邊的溫馨小屋，適合家庭入住。</p>
-                </div>
-            </div>
-
         </section>
+
+        <section id="day2" class="mb-12">
+            <h2 class="serif text-xl font-bold mb-6 pl-10">02.17 Tuesday</h2>
+            
+            <div class="relative pl-12 mb-8">
+                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-green-500 ring-4 ring-[#f9f8f4]"></div>
+                <div class="flex items-baseline gap-2 mb-2"><span class="serif font-bold">11:00</span><span class="tag tag-spot">SPOT</span></div>
+                <div class="card p-4">
+                    <p class="font-bold text-sm">山茶花之丘 (Camellia Hill)</p>
+                    <p class="text-xs text-gray-500 mt-1">【季節限定】冬日必看紅色山茶花小徑。</p>
+                </div>
+            </div>
+
+            <div class="relative pl-12 mb-8">
+                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-orange-400 ring-4 ring-[#f9f8f4]"></div>
+                <div class="flex items-baseline gap-2 mb-2"><span class="serif font-bold">13:30</span><span class="tag tag-food">FOOD</span></div>
+                <div class="card p-4">
+                    <p class="font-bold text-sm">Noraba 海鮮拉麵 (노라바)</p>
+                    <p class="text-xs text-gray-500 mt-1">望海吃海鮮拉麵，體驗濟州式慢活。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="day4" class="mb-12">
+            <h2 class="serif text-xl font-bold mb-6 pl-10">02.19 Thursday</h2>
+            <div class="relative pl-12 mb-8">
+                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-orange-500 ring-4 ring-[#f9f8f4]"></div>
+                <div class="flex items-baseline gap-2 mb-2"><span class="serif font-bold">全天</span><span class="tag tag-spot">UDO ISLAND</span></div>
+                <div class="card p-4 bg-orange-50/30">
+                    <div class="space-y-4">
+                        <div class="border-b pb-2">
+                            <p class="font-bold text-sm text-orange-800">On Off (온오프)</p>
+                            <p class="text-xs text-gray-500">黑豬肉炸豬排，牛島無敵海景第一排。</p>
+                            <a href="https://naver.me/FOv7Z4K1" class="text-[10px] text-blue-500 underline">地圖導航</a>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-orange-800">Udo Sand (우도샌드)</p>
+                            <p class="text-xs text-gray-500">必買牛島花生三明治餅乾夾心。</p>
+                            <a href="https://naver.me/I5cM7R1x" class="text-[10px] text-blue-500 underline">地圖導航</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="day5" class="mb-12">
+            <h2 class="serif text-xl font-bold mb-6 pl-10">02.20 Friday</h2>
+            <div class="relative pl-12 mb-8">
+                <div class="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-black ring-4 ring-[#f9f8f4]"></div>
+                <div class="flex items-baseline gap-2 mb-2"><span class="serif font-bold">09:00</span><span class="tag tag-food">MUST GO</span></div>
+                <div class="card p-4">
+                    <p class="font-bold text-sm">London Bagel Museum (런던베이글)</p>
+                    <p class="text-xs text-gray-500 mt-1 leading-relaxed">全濟州最難排的店。建議使用 CatchTable 或 08:00 現場排隊。</p>
+                    <a href="https://naver.me/G87O6S6W" class="text-[10px] text-blue-500 mt-2 block italic">Naver Map Location</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <div class="fixed bottom-4 inset-x-4 flex justify-between items-center bg-white/80 backdrop-blur shadow-lg border border-gray-100 rounded-full px-6 py-3">
+    <footer class="fixed bottom-6 inset-x-6 flex justify-between items-center bg-black/90 text-white rounded-2xl px-6 py-4 shadow-2xl">
         <div class="flex flex-col">
-            <span class="text-[8px] text-gray-400 font-bold uppercase">Budget Info</span>
-            <span class="serif font-bold text-sm">NT$ 12,500 <span class="text-[10px] font-normal text-gray-400">/ PER</span></span>
+            <span class="text-[9px] text-gray-400 uppercase tracking-widest">Total Budget</span>
+            <span class="serif text-lg">NT$ 50,000 <span class="text-xs text-gray-500">/ 4 ppl</span></span>
         </div>
-        <a href="https://naver.me/5LQ4Tpck" class="bg-black text-white px-5 py-2 rounded-full text-xs font-bold flex items-center gap-2">
-             <i class="fa-solid fa-star text-yellow-400"></i> 我的收藏夾
+        <a href="https://naver.me/5LQ4Tpck" class="bg-white text-black px-4 py-2 rounded-lg text-xs font-bold">
+            我的收藏清單
         </a>
-    </div>
+    </footer>
 
 </body>
 </html>
