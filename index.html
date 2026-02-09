@@ -3,109 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>濟州冬日·家族自駕之旅 2026</title>
+    <title>濟州冬日·家族之旅 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f3f4f6; }
-        .naver-green { background-color: #03CF5D; color: white; }
-        .card { background: white; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        .timeline-item::before { content: ''; position: absolute; left: 19px; top: 0; bottom: 0; width: 2px; background: #e5e7eb; }
-        .nav-link { flex-shrink: 0; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: bold; background: #e5e7eb; color: #4b5563; }
-        .nav-link.active { background: #2563eb; color: white; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
+        .naver-green { background-color: #03CF5D; color: white; box-shadow: 0 2px 4px rgba(3, 207, 93, 0.2); }
+        .card { background: white; border-radius: 20px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); border: 1px solid #f1f5f9; }
+        .day-badge { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .sticky-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid #e2e8f0; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="pb-24">
+<body class="pb-28">
 
-    <header class="bg-slate-900 text-white p-6 text-center shadow-lg">
-        <h1 class="text-2xl font-bold tracking-tight">濟州冬日·家族之旅</h1>
-        <p class="text-[10px] text-slate-400 mt-1 uppercase tracking-[0.2em]">2026.02.16 - 02.20 | Self-Drive</p>
-    </header>
+    <div class="relative h-48 bg-slate-900 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 opacity-40 bg-[url('https://www.visitjeju.net/u/site/jeju/images/sub/img_sub_intro01.jpg')] bg-cover bg-center"></div>
+        <div class="relative text-center z-10 px-4">
+            <h1 class="text-3xl font-bold text-white tracking-tight">濟州·冬日環島 🍊</h1>
+            <p class="text-blue-300 text-xs mt-2 font-mono uppercase tracking-widest">2026.02.16 - 02.20 | CNY Family Trip</p>
+        </div>
+    </div>
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b px-4 py-3 flex gap-3 overflow-x-auto no-scrollbar">
-        <a href="#stays" class="nav-link active">🏠 住宿</a>
-        <a href="#day1" class="nav-link">D1</a>
-        <a href="#day2" class="nav-link">D2</a>
-        <a href="#day3" class="nav-link">D3</a>
-        <a href="#day4" class="nav-link">D4</a>
-        <a href="#day5" class="nav-link">D5</a>
+    <nav class="sticky-nav sticky top-0 z-50 px-4 py-3 flex gap-3 overflow-x-auto no-scrollbar">
+        <a href="#day1" class="flex-shrink-0 px-5 py-2 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">D1</a>
+        <a href="#day2" class="flex-shrink-0 px-5 py-2 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">D2</a>
+        <a href="#day3" class="flex-shrink-0 px-5 py-2 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">D3</a>
+        <a href="#day4" class="flex-shrink-0 px-5 py-2 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">D4</a>
+        <a href="#day5" class="flex-shrink-0 px-5 py-2 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">D5</a>
     </nav>
 
-    <main class="max-w-md mx-auto p-4 space-y-8">
+    <main class="max-w-md mx-auto p-5 space-y-10">
         
-        <section id="stays" class="space-y-3">
-            <h2 class="font-bold text-gray-700 flex items-center gap-2 px-1"><i class="fa-solid fa-map-pin text-blue-500"></i> 住宿導航</h2>
-            <div class="card p-4 flex justify-between items-center">
-                <div><p class="text-[10px] text-gray-400">D1-D2 涯月</p><p class="font-bold">布朗小屋 (브라운캐빈)</p></div>
-                <a href="https://naver.me/GD5XvBnd" class="naver-green px-4 py-2 rounded-lg text-xs font-bold">導航</a>
-            </div>
-            <div class="card p-4 flex justify-between items-center">
-                <div><p class="text-[10px] text-gray-400">D3 西歸浦</p><p class="font-bold">Heyy 西歸浦 (헤이 서귀포)</p></div>
-                <a href="https://naver.me/F4Nq7p5U" class="naver-green px-4 py-2 rounded-lg text-xs font-bold">導航</a>
-            </div>
-            <div class="card p-4 flex justify-between items-center">
-                <div><p class="text-[10px] text-gray-400">D4 城山</p><p class="font-bold">海起之屋 (해뜨는집)</p></div>
-                <a href="https://naver.me/G99Xm7Zc" class="naver-green px-4 py-2 rounded-lg text-xs font-bold">導航</a>
+        <section class="space-y-4">
+            <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2 px-1"><i class="fa-solid fa-hotel text-blue-500"></i> 住宿導航</h2>
+            <div class="grid gap-3 text-sm">
+                <div class="card p-4 flex justify-between items-center">
+                    <div><p class="text-[10px] text-slate-400 font-bold">D1-D2 涯月</p><p class="font-bold text-slate-700">布朗小屋 (브라운캐빈)</p></div>
+                    <a href="https://naver.me/GD5XvBnd" class="naver-green px-4 py-2 rounded-xl text-xs font-bold">Map</a>
+                </div>
+                <div class="card p-4 flex justify-between items-center">
+                    <div><p class="text-[10px] text-slate-400 font-bold">D3 西歸浦</p><p class="font-bold text-slate-700">Heyy 西歸浦 (헤이 서귀포)</p></div>
+                    <a href="https://naver.me/F4Nq7p5U" class="naver-green px-4 py-2 rounded-xl text-xs font-bold">Map</a>
+                </div>
+                <div class="card p-4 flex justify-between items-center border-2 border-blue-100">
+                    <div><p class="text-[10px] text-slate-400 font-bold">D4 城山</p><p class="font-bold text-slate-700">海起之屋 (해뜨는집)</p></div>
+                    <a href="https://naver.me/G99Xm7Zc" class="naver-green px-4 py-2 rounded-xl text-xs font-bold">Map</a>
+                </div>
             </div>
         </section>
 
-        <div class="relative space-y-8">
-            <div id="day1" class="pl-10 relative timeline-item">
-                <div class="absolute left-0 w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold z-10 border-4 border-white shadow-md text-sm">16</div>
-                <div class="card p-5 space-y-3">
-                    <h3 class="font-bold text-blue-800 border-b pb-1">D1 桃園 ✈️ 濟州</h3>
-                    <p class="text-xs text-gray-500">免稅店、東門市場、麥當勞、夜市</p>
-                    <div class="bg-blue-50 p-3 rounded-lg flex justify-between items-center">
-                        <span class="text-xs font-bold text-blue-700">🍯 Siso Kaymak</span>
-                        <a href="https://naver.me/xsYv0q8u" class="text-blue-500 underline text-xs">Map</a>
+        <div class="space-y-12">
+            <section id="day1" class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="day-badge text-white px-4 py-1 rounded-full text-xs font-black shadow-lg">DAY 1</span>
+                    <span class="text-slate-400 text-xs">02.16 (一)</span>
+                </div>
+                <div class="card p-5 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-bold text-slate-800">西北部：抵達與購物</h3>
+                        <span class="text-[10px] bg-red-100 text-red-600 px-2 py-1 rounded">紅眼班機</span>
                     </div>
-                </div>
-            </div>
-
-            <div id="day2" class="pl-10 relative timeline-item">
-                <div class="absolute left-0 w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold z-10 border-4 border-white shadow-md text-sm">17</div>
-                <div class="card p-5 space-y-3">
-                    <h3 class="font-bold text-emerald-800 border-b pb-1">D2 西部慢活</h3>
-                    <p class="text-xs text-gray-500">山茶花之丘、採橘子、Noraba拉麵</p>
-                    <a href="https://naver.me/G87RpxoD" class="block bg-gray-50 p-2 rounded text-center text-xs text-emerald-600 font-bold border border-emerald-100">前往 Noraba 海鮮拉麵 Map</a>
-                </div>
-            </div>
-
-            <div id="day4" class="pl-10 relative timeline-item">
-                <div class="absolute left-0 w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold z-10 border-4 border-white shadow-md text-sm">19</div>
-                <div class="card p-5 space-y-3">
-                    <h3 class="font-bold text-orange-800 border-b pb-1">D4 牛島一日</h3>
-                    <div class="flex flex-col gap-2">
-                        <a href="https://naver.me/FOv7Z4K1" class="text-xs text-orange-600 font-bold bg-orange-50 p-2 rounded text-center">On Off 黑豬肉炸豬排 Map</a>
-                        <a href="https://naver.me/I5cM7R1x" class="text-xs text-orange-600 font-bold bg-orange-50 p-2 rounded text-center">牛島三明治 (Udo Sand) Map</a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="day5" class="pl-10 relative timeline-item">
-                <div class="absolute left-0 w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center text-white font-bold z-10 border-4 border-white shadow-md text-sm">20</div>
-                <div class="card p-5 space-y-3">
-                    <h3 class="font-bold text-slate-800 border-b pb-1">D5 東部視覺饗宴</h3>
-                    <div class="flex items-center gap-3 p-2 bg-gray-50 rounded-lg">
-                        <span class="text-xl">🥯</span>
-                        <div class="flex-1">
-                            <p class="font-bold text-xs text-slate-700">London Bagel Museum</p>
-                            <a href="https://naver.me/G87O6S6W" class="text-[10px] text-blue-500 underline">導覽地圖</a>
+                    <div class="space-y-3">
+                        <div class="flex gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
+                            <span class="text-lg">🍯</span>
+                            <div class="text-xs">
+                                <p class="font-bold">Siso Kaymak</p>
+                                <p class="text-slate-500 mt-0.5">土耳其奶油蜂蜜，必拍！</p>
+                                <a href="https://naver.me/xsYv0q8u" class="text-blue-500 font-bold mt-1 inline-block italic underline">點我導航 Map</a>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-100">
+                            <span class="text-lg">🥩</span>
+                            <div class="text-xs">
+                                <p class="font-bold">Pork Ttenogi</p>
+                                <p class="text-slate-500 mt-0.5">厚切視覺系炸豬排</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex items-center gap-3 p-2 bg-gray-50 rounded-lg">
-                        <span class="text-xl">🍊</span>
-                        <div class="flex-1">
-                            <p class="font-bold text-xs text-slate-700">Cafe the Container</p>
-                            <a href="https://naver.me/xsYv0q8u" class="text-[10px] text-blue-500 underline">導覽地圖</a>
+                    <p class="text-xs text-slate-500 leading-relaxed italic"><i class="fa-solid fa-circle-info"></i> 路線：機場 -> 樂天取車 -> 麥當勞 -> 免稅店 -> 紀念品店 -> 樹木園夜市</p>
+                </div>
+            </section>
+
+            <section id="day2" class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="day-badge text-white px-4 py-1 rounded-full text-xs font-black shadow-lg">DAY 2</span>
+                    <span class="text-slate-400 text-xs">02.17 (二)</span>
+                </div>
+                <div class="card p-5 space-y-4">
+                    <h3 class="font-bold text-slate-800">西部：慢活攝影</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="https://naver.me/54V2X6i5" class="bg-emerald-50 p-3 rounded-2xl text-center">
+                            <p class="text-emerald-700 font-bold text-xs">山茶花之丘</p>
+                            <p class="text-[10px] text-emerald-500 mt-1">必拍冬日紅花</p>
+                        </a>
+                        <a href="https://naver.me/G87RpxoD" class="bg-orange-50 p-3 rounded-2xl text-center">
+                            <p class="text-orange-700 font-bold text-xs">Noraba 拉麵</p>
+                            <p class="text-[10px] text-orange-500 mt-1">望海海鮮拉麵</p>
+                        </a>
+                    </div>
+                    <div class="p-3 bg-slate-50 rounded-2xl text-xs">
+                        <p class="font-bold text-slate-700">📸 攝影點：翰林公園 / 採橘子</p>
+                        <p class="font-bold text-slate-700 mt-2">🍴 晚餐：恩惠鮑魚 / 長長白帶魚</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="day4" class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="day-badge text-white px-4 py-1 rounded-full text-xs font-black shadow-lg">DAY 4</span>
+                    <span class="text-slate-400 text-xs">02.19 (四)</span>
+                </div>
+                <div class="card p-5 space-y-4 bg-gradient-to-br from-white to-orange-50">
+                    <h3 class="font-bold text-slate-800">牛島：跳島冒險</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center p-3 bg-white rounded-xl shadow-sm border border-orange-100">
+                            <div class="text-xs font-bold text-orange-700">On Off 黑豬肉炸豬排</div>
+                            <a href="https://naver.me/FOv7Z4K1" class="text-blue-500 underline text-xs">Map</a>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-white rounded-xl shadow-sm border border-orange-100">
+                            <div class="text-xs font-bold text-orange-700">牛島三明治 (Udo Sand)</div>
+                            <a href="https://naver.me/I5cM7R1x" class="text-blue-500 underline text-xs">Map</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <section id="day5" class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span class="day-badge text-white px-4 py-1 rounded-full text-xs font-black shadow-lg">DAY 5</span>
+                    <span class="text-slate-400 text-xs">02.20 (五)</span>
+                </div>
+                <div class="card p-5 space-y-4">
+                    <h3 class="font-bold text-slate-800">東部：最後視覺饗宴</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center text-2xl shadow-inner">🥯</div>
+                            <div class="flex-1">
+                                <p class="font-bold text-sm text-slate-700">London Bagel Museum</p>
+                                <a href="https://naver.me/G87O6S6W" class="text-blue-500 underline text-xs italic">早起預約導覽 Map</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center text-2xl shadow-inner">🍊</div>
+                            <div class="flex-1">
+                                <p class="font-bold text-sm text-slate-700">Cafe the Container</p>
+                                <a href="https://naver.me/xsYv0q8u" class="text-blue-500 underline text-xs italic">巨大橘子籃 Map</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
-    <footer class="fixed bottom-0 inset-x-0 bg-white border-t p-4 flex justify-around items-center z-50 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
-        <div class="text-center"><p class="text-[9px] text-gray-400">總預算</p><p class="font-bold text-sm text-blue-600">NT$ 50,000</p></div>
-        <a href="https://naver.me/5LQ4Tpck" class="naver-green px-6 py-2 rounded-full text-xs font
+    <footer class="fixed bottom-0 inset-x-0 bg-white p-5 border-t border-slate-100 shadow-[0_-10px_30px_rgba(0,0,0,0.08)] flex justify-around items-center z-[100]">
+        <div class="text-center">
+            <p class="text-[9px] text-slate-400 font-bold tracking-widest uppercase">Total Budget</p>
+            <p class="font-black text-blue-600 text-sm">NT$ 50,000</p>
+        </div>
+        <div class="h-8 w-px bg-slate-100"></div>
+        <a href="https://naver.me/5LQ4Tpck" class="naver-green px-8 py-3 rounded-2xl text-[10px] font-black uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-map-marked-alt"></i> 全清單
+        </a>
+    </footer>
+
+</body>
+</html>
